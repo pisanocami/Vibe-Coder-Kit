@@ -1,0 +1,71 @@
+graph TD
+    %% AI Toolkit Ecosystem - Strategic Role Mapping with Enhanced Testing
+    subgraph Strategic["🧠 Strategic Intelligence Layer"]
+        PERP[🧠 Perplexity AI<br/>Product Manager & Strategist<br/>• Market Analysis<br/>• Competitive Research<br/>• Innovation Ideation]
+        COMET[🔍 Comet Browser<br/>Market Research Agent<br/>• Web Scraping<br/>• URL Collection<br/>• Real-time Data]
+    end
+
+    subgraph Frontend["🎨 Frontend Equivalents (Choose One)"]
+        direction TB
+        
+        LOVABLE[🎨 Lovable<br/>Frontend Development<br/>• UI/UX Prototyping<br/>• Visual Design Focus]
+        REPLIT[🚀 Replit<br/>Full-Stack Development<br/>• Built-in Hosting<br/>• All-in-One Solution]
+        
+        class LOVABLE,REPLIT frontend
+    end
+
+    subgraph Backend["⚡ Backend Equivalents (Choose One)"]
+        direction TB
+        
+        WINDSURF[⚡ Windsurf<br/>Backend Development<br/>• API & Architecture<br/>• Workflow Focus]
+        CURSOR[💻 Cursor<br/>Backend Development<br/>• AI Code Refinement<br/>• Debugging Focus]
+        
+        class WINDSURF,CURSOR backend
+    end
+    
+    %% Main Tools
+    subgraph TOOLS["🛠️ Development Tools"]
+        direction LR
+        PERP[🧠 Perplexity/Comet]
+        FRONT[🎨 Lovable/Replit]
+        BACK[⚡ Windsurf/Cursor]
+        GITHUB[📁 GitHub]
+        TEST[🧪 Tests]
+    end
+
+    %% Main Flow
+    PERP -->|Requirements| FRONT & BACK
+    
+    %% Frontend Connections
+    FRONT -->|Code| GITHUB
+    FRONT -->|Tests| TEST
+    
+    %% Backend Connections
+    BACK -->|Code| GITHUB
+    BACK -->|Tests| TEST
+    
+    %% Testing Flow
+    GITHUB -->|CI/CD| TEST
+    TEST -->|Results| GITHUB
+    TEST -->|Feedback| FRONT & BACK
+    
+    %% Styles
+    style TOOLS fill:#f8f9fa,stroke:#333,stroke-width:1px
+    style TEST fill:#e8f5e9,stroke:#38a169
+
+    %% Styling
+    classDef strategic fill:#e8f5e9,stroke:#38a169,stroke-width:2px
+    classDef frontend fill:#e0f2fe,stroke:#0284c7,stroke-width:2px
+    classDef backend fill:#fce7f6,stroke:#db2777,stroke-width:2px
+    classDef integration fill:#fef3c7,stroke:#d97706,stroke-width:2px
+    classDef testing fill:#ecfdf5,stroke:#059669,stroke-width:2px,stroke-dasharray: 5 5
+    classDef decision fill:#fff,stroke:#000,stroke-width:2px
+    classDef action fill:#fef2f2,stroke:#dc2626,stroke-width:2px
+
+    class PERP,COMET strategic
+    class LOVABLE frontend
+    class WINDSURF,CURSOR backend
+    class REPLIT,GITHUB integration
+    class PERP_TEST testing
+    class PASS decision
+    class FIX action

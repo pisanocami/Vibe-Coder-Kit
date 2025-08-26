@@ -1,0 +1,65 @@
+graph TD
+    %% High-Level Workflow - Development Lifecycle
+    
+    %% Initial Decision
+    START([💡 Project Idea]) --> ANALYZE{🤔 Analyze Project Scope}
+    
+    %% Path Selection
+    ANALYZE -->|Experimental/Learning| MASTER_PATH["🎨 Master Product Path"]
+    ANALYZE -->|Business Critical| RAPID_PATH["⚡ Rapid Prototype Path"]
+
+    %% Phase 1: Research & Planning
+    subgraph P1["🔍 Research & Planning"]
+        direction LR
+        P1_1[📝 Requirements] --> P1_2[🎯 Market Analysis]
+        P1_2 --> P1_3[📊 Feature Roadmap]
+    end
+
+    %% Phase 2: Frontend Development
+    subgraph P2["🎨 Frontend Development"]
+        direction LR
+        P2_1[🖌️ UI/UX Design] --> P2_2[🧩 Components]
+        P2_2 --> P2_3[🚀 Prototype]
+    end
+
+    %% Phase 3: Backend Development
+    subgraph P3["⚡ Backend Development"]
+        direction LR
+        P3_1[💾 Database] --> P3_2[🔗 API Layer]
+        P3_2 --> P3_3[🛡️ Security]
+    end
+
+    %% Phase 4: Testing & Delivery
+    subgraph P4["🧪 Testing & Delivery"]
+        direction LR
+        P4_1[🧪 Unit Tests] --> P4_2[🔍 Integration]
+        P4_2 --> P4_3[🚀 MVP]
+    end
+
+    %% Tool Integration
+    subgraph TOOLS["🛠️ Tools"]
+        direction LR
+        T1[🔍 Perplexity/Comet]
+        T2[🎨 Lovable/Replit]
+        T3[⚡ Windsurf/Cursor]
+        T4[📁 GitHub]
+    end
+
+    %% Connect Phases
+    MASTER_PATH --> P1
+    RAPID_PATH --> P1
+    P1 --> P2 --> P3 --> P4
+
+    %% Tool Connections
+    P1 & P2 & P3 & P4 -.-> TOOLS
+
+    %% Styling
+    classDef phase fill:#f8f9fa,stroke:#333,stroke-width:1px,rx:5,ry:5
+    classDef phaseTitle fill:#e2e8f0,stroke:#94a3b8,stroke-width:1.5px,font-weight:bold
+    classDef tools fill:#f0f9ff,stroke:#0284c7,stroke-width:1px,rx:5,ry:5
+    classDef path fill:#f5f3ff,stroke:#7c3aed,stroke-width:1.5px,stroke-dasharray: 3 3
+    
+    class P1,P2,P3,P4 phase
+    class P1_title,P2_title,P3_title,P4_title phaseTitle
+    class TOOLS tools
+    class MASTER_PATH,RAPID_PATH path

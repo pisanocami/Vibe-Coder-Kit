@@ -1,0 +1,77 @@
+graph TD
+    %% Detailed Workflow Composition - Dual Path Decision Tree
+
+    START([💡 Project Idea]) --> ANALYZE{🤔 Analyze Project Scope}
+
+    %% Decision Point
+    ANALYZE -->|Experimental/Learning| MASTER_PATH["🎨 Master Product Building Path"]
+    ANALYZE -->|Business Critical/Timeline| RAPID_PATH["⚡ Rapid Prototyping Path"]
+
+    %% Master Product Building Path
+    subgraph MASTER["🎨 Master Product Building (Exploration Mode)"]
+        direction TB
+
+        M1[🧠 Deep Market Research<br/>📊 Comprehensive Analysis]
+        M2[🎨 Advanced UI/UX Design<br/>🔄 Multiple Iterations]             
+        M3[⚡ Full-Stack Architecture<br/>🔧 Complex Integrations]
+        M4[🚀 Feature-Rich MVP<br/>📈 Scalability Focus]
+
+        M1 --> M2 --> M3 --> M4
+    end
+
+    %% Rapid Prototyping Path
+    subgraph RAPID["⚡ Rapid Prototyping (24-48 Hours)"]
+        direction TB
+
+        R1[🔍 Targeted Research<br/>📝 Core Requirements]
+        R2[🎯 Focused UI Design<br/>⚡ Essential Features]
+        R3[🔧 Minimal Backend<br/>🚀 Quick Integration]
+        R4[✅ Working MVP<br/>🎯 Core Functionality]
+
+        R1 --> R2 --> R3 --> R4
+    end
+
+    %% Herramientas Principales
+    subgraph HERRAMIENTAS["🛠️ Herramientas"]
+        direction LR
+        PERP[🧠 Perplexity/Comet]
+        LOVABLE[🎨 Lovable/Replit]
+        WINDSURF[⚡ Windsurf/Cursor]
+        GITHUB[📁 GitHub]
+    end
+
+    %% Path Connections
+    MASTER_PATH --> M1
+    RAPID_PATH --> R1
+
+    %% Conexiones de herramientas
+    M1 & R1 --> PERP
+    M2 & R2 --> LOVABLE
+    M3 & R3 --> WINDSURF
+    M4 & R4 --> GITHUB
+
+    %% Convergence Point
+    M4 --> EVAL{📊 Evaluation & Next Steps}
+    R4 --> EVAL
+
+    EVAL -->|Production Ready| PROD[🌟 Production Deployment]
+    EVAL -->|Needs Iteratioan| ITERATE[🔄 Refinement Cycle]
+    EVAL -->|Learning Complete| ARCHIVE[📚 Knowledge Archive]
+
+
+    %% Styling
+    classDef start_end fill:#e8f5e9,stroke:#38a169,stroke-width:3px
+    classDef decision fill:#fffbe6,stroke:#f59e0b,stroke-width:2px
+    classDef path fill:#f0f4f8,stroke:#6366f1,stroke-width:2px,font-weight:bold
+    classDef master_step fill:#fce7f3,stroke:#ec4899,stroke-width:2px
+    classDef rapid_step fill:#ecfdf5,stroke:#10b981,stroke-width:2px
+    classDef tool fill:#ffffff,stroke:#4a5568,stroke-width:2px
+    classDef outcome fill:#e0e7ff,stroke:#4f46e5,stroke-width:2px
+
+    class START,PROD,ARCHIVE start_end
+    class ANALYZE,EVAL decision
+    class MASTER_PATH,RAPID_PATH path
+    class M1,M2,M3,M4 master_step
+    class R1,R2,R3,R4 rapid_step
+    class PERP,LOVABLE,WINDSURF,GITHUB,REPLIT tool
+    class ITERATE outcome
